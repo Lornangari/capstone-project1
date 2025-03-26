@@ -22,18 +22,18 @@
    
      <!-- Nav Links -->
      <ul class="hidden md:flex justify-center space-x-8 text-white font-semibold">
-         <li><a href="index.html" class="hover:text-black transition">Home</a></li>
-         <li><a href="featured.html" class="hover:text-black transition">Featured</a></li>
-         <li><a href="books.html" class="hover:text-black transition">Books</a></li>
-         <li><a href="reviews.html" class="hover:text-black transition">Review</a></li>
-         <li><a href="blog.html" class="hover:text-black transition">Blog</a></li>
+      <li><a href="index.html" class="hover:underline transition">Home</a></li>
+      <li><a href="featured.html" class="hover:underline transition">Featured</a></li>
+      <li><a href="books.html" class="hover:underline transition">Books</a></li>
+      <li><a href="reviews.html" class="hover:underline transition">Review</a></li>
+      <li><a href="blog.html" class="hover:underline transition">Blog</a></li>
      </ul>
    
      <!-- Icons -->
      <div class="flex space-x-4 text-white px-4">
-         <a href="#" class="hover:text-black transition"><i class="fa-solid fa-heart"></i></a>
-         <a href="#" class="hover:text-black transition"><i class="fa-solid fa-cart-shopping"></i></a>
-         <a href="#" class="hover:text-black transition"><i class="fa-solid fa-user"></i></a>
+         <a href="#" class="hover:text-gray-200 transition"><i class="fa-solid fa-heart"></i></a>
+         <a href="#" class="hover:text-gray-200 transition"><i class="fa-solid fa-cart-shopping"></i></a>
+         <a href="#" class="hover:text-gray-200 transition"><i class="fa-solid fa-user"></i></a>
      </div>
    
      <!--Menu Button -->
@@ -55,13 +55,20 @@
    <!-- Menu button -->
    <div id="mobile-menu" class="hidden md:hidden bg-green-900 text-white p-4">
      <ul class="flex flex-col space-y-2">
-         <li><a href="index.html" class="block hover:text-black">Home</a></li>
-         <li><a href="featured.html" class="block hover:text-black">Featured</a></li>
-         <li><a href="books.html" class="block hover:text-black">Books</a></li>
-         <li><a href="reviews.html" class="block hover:text-black">Reviews</a></li>
-         <li><a href="blog.html" class="block hover:text-black">Blog</a></li>
+      <li><a href="index.html" class="hover:underline transition">Home</a></li>
+      <li><a href="featured.html" class="hover:underline transition">Featured</a></li>
+      <li><a href="books.html" class="hover:underline transition">Books</a></li>
+      <li><a href="reviews.html" class="hover:underline transition">Review</a></li>
+      <li><a href="blog.html" class="hover:underline transition">Blog</a></li>
      </ul>
    </div>
+
+   <script>
+    // Toggle  Menu button
+    document.getElementById("menu-btn").addEventListener("click", function() {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+    });
+</script>
    
    
 
@@ -110,52 +117,83 @@
 
 
 
-    <!-- FOOTER -->
-  
+    <!-- FOOTER SECTION -->
+
     <footer class="bg-green-800 text-white py-8">
-        <div class="container mx-auto px-4">
-          <div class="flex flex-wrap justify-between">
-            <!-- Navigation Links -->
-            <div class="w-full sm:w-auto mb-6 sm:mb-0">
-              <h5 class="text-lg font-semibold mb-2">Quick Links</h5>
-              <ul>
-                <li><a href="index.html" class="text-white hover:text-black transition">Home</a></li>
-                <li><a href="featured.html" class="text-white hover:text-black transition">Featured</a></li>
-                <li><a href="books.html" class="text-white hover:text-black transition">Books</a></li>
-                <li><a href="reviews.html" class="text-white hover:text-black transition">Review</a></li>
-                <li><a href="blog.html" class="text-white hover:text-black transition">Blog</a></li>
-              </ul>
-            </div>
-            <!-- Contact Information -->
-            <div class="w-full sm:w-auto mb-6 sm:mb-0">
-              <h5 class="text-lg font-semibold mb-2">Contact Us</h5>
-              <p class="text-white">
-                123 Culinary Lane<br>
-                Regen Town, FT 12345<br>
-                Phone: +254 7655233<br>
-                Email: info@bookstore.com
-              </p>
-            </div>
-            <!-- Social Media Icons -->
-            <div class="w-full sm:w-auto">
-              <h5 class="text-lg font-semibold mb-2">Follow Us</h5>
-              <div class="flex space-x-4">
-                <a href="#" class="text-white hover:text-black transition"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white hover:text-black transition"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white hover:text-black transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white hover:text-black transition"><i class="fab fa-linkedin-in"></i></a>
+      <div class="container mx-auto px-4 max-w-7xl">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 text-center sm:text-left">
+              
+              <!-- Quick Links -->
+              <div>
+                  <h5 class="text-lg font-semibold mb-3">Quick Links</h5>
+                  <ul>
+                      <li><a href="index.html" class="hover:underline">Home</a></li>
+                      <li><a href="featured.html" class="hover:underline">Featured</a></li>
+                      <li><a href="books.html" class="hover:underline">Books</a></li>
+                      <li><a href="reviews.html" class="hover:underline">Reviews</a></li>
+                      <li><a href="blog.html" class="hover:underline">Blog</a></li>
+                  </ul>
               </div>
-            </div>
+  
+              <!-- Customer Service -->
+              <div>
+                  <h5 class="text-lg font-semibold mb-3">Customer Service</h5>
+                  <ul>
+                      <li><a href="faqs.html" class="hover:underline">FAQs</a></li>
+                      <li><a href="account.html" class="hover:underline">My Account</a></li>
+                      <li><a href="track-order.html" class="hover:underline">Track My Order</a></li>
+                  </ul>
+              </div>
+  
+              <!-- About Us -->
+              <div>
+                  <h5 class="text-lg font-semibold mb-3">About Us</h5>
+                  <ul>
+                      <li><a href="our-story.html" class="hover:underline">Our Story</a></li>
+                      <li><a href="our-stores.html" class="hover:underline">Our Stores</a></li>
+                  </ul>
+              </div>
+  
+              <!-- Contact Us -->
+              <div>
+                  <h5 class="text-lg font-semibold mb-3">Contact Us</h5>
+                  <p>
+                      123 Bookstore Avenue<br>
+                      Regen Town, FT 12345<br>
+                      Phone: <a href="tel:+2547655233" class="underline">+254 7655233</a><br>
+                      Email: <a href="mailto:info@bookstore.com" class="underline">info@bookstore.com</a>
+                  </p>
+              </div>
+  
+              <!-- Our Policies -->
+              <div>
+                  <h5 class="text-lg font-semibold mb-3">Our Policies</h5>
+                  <ul>
+                      <li><a href="terms.html" class="hover:underline">Terms & Conditions</a></li>
+                      <li><a href="privacy.html" class="hover:underline">Privacy Policy</a></li>
+                  </ul>
+              </div>
           </div>
-          <div class="mt-8 text-center text-white">
-            © 2025 Bookstore. All rights reserved.
+  
+          <!-- Follow Us -->
+          <div class="mt-6 text-center sm:text-left">
+              <h5 class="text-lg font-semibold mb-3">Follow Us</h5>
+              <div class="flex justify-center sm:justify-start space-x-4 text-xl">
+                  <a href="https://www.facebook.com" target="_blank" class="hover:text-gray-200 transition"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://twitter.com" target="_blank" class="hover:text-gray-200 transition"><i class="fab fa-twitter"></i></a>
+                  <a href="https://www.instagram.com" target="_blank" class="hover:text-gray-200 transition"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.linkedin.com" target="_blank" class="hover:text-gray-200 transition"><i class="fab fa-linkedin-in"></i></a>
+              </div>
           </div>
-        </div>
-      </footer>
+  
+          <!-- Copyright Section -->
+          <div class="mt-6 text-center text-sm">
+              © 2025 <a href="index.html" class="underline">Bookstore</a>. All rights reserved.
+          </div>
+      </div>
+  </footer>
 
-
-
-
+  
 
 </body>
 </html>
