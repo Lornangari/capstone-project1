@@ -30,7 +30,7 @@
     <!-- Icons -->
     <div class="flex space-x-4 text-white px-4">
         <a href="#" class="hover:text-gray-200 transition"><i class="fa-solid fa-heart"></i></a>
-        <a href="#" class="hover:text-gray-200 transition"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="cart.html" class="hover:text-gray-200 transition"><i class="fa-solid fa-cart-shopping"></i></a>
         <a href="login.html" class="hover:text-gray-200 transition"><i class="fa-solid fa-user"></i></a>
     </div>
 
@@ -52,14 +52,25 @@
 </div>
 
 <!-- Search Bar -->
-<div class="w-full flex justify-center p-4" id="search-bar">
+<!-- <div class="w-full flex justify-center p-4" id="search-bar">
     <div class="relative w-full max-w-lg">
-        <input type="text" placeholder="Search books..." class="w-full border border-green-800 p-3 pl-4 pr-12 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+        <input id="search-input" type="text" placeholder="Search books..." class="w-full border border-green-800 p-3 pl-4 pr-12 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
         <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-black">
             <i class="fa-solid fa-search cursor-pointer"></i>
         </button>
     </div>
+</div> -->
+
+
+<div class="w-full flex justify-center p-4" id="search-bar">
+ <form action="books.html" method="GET" class="relative w-full max-w-lg">
+    <input type="text" name="search" placeholder="Search books..." class="w-full border border-green-800 p-3 pl-4 pr-12 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+    <button type="submit" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-black">
+      <i class="fa-solid fa-search cursor-pointer"></i>
+    </button>
+  </form>
 </div>
+  
 
 <script>
   // Toggle Mobile Menu
@@ -186,6 +197,6 @@
   </footer>
 
   
-
+  <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

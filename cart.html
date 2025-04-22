@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Cart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">Shopping Cart</h1>
+
+    <div id="cart-items" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Cart items will be inserted here -->
+    </div>
+
+    <div id="cart-summary" class="mt-6 text-xl font-semibold">
+      <!-- Total price will be shown here -->
+    </div>
+
+    <div class="mt-4">
+      <a href="books.html" class="text-blue-600 hover:underline">Continue Shopping</a>
+    </div>
+  </div>
+
+  <script>
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartContainer = document.getElementById('cart-items');
+      const cartSummary = document.getElementById('cart-summary');
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+        cartSummary.innerHTML = "";
+        return;
+      }
+
+      let total = 0;
+      cartContainer.innerHTML = "";
+
+      cart.forEach(item => {
+        total += parseFloat(item.price);
+
+        const itemDiv = document.createElement('div');
+        itemDiv.className = "bg-white p-4 rounded-lg shadow";
+
+        itemDiv.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" class="w-32 h-40 object-cover mb-2">
+          <h2 class="text-xl font-bold">${item.title}</h2>
+          <p class="text-sm text-gray-600">by ${item.author}</p>
+          <p class="mt-2 font-semibold">$${item.price}</p>
+        `;
+
+        cartContainer.appendChild(itemDiv);
+      });
+
+      cartSummary.innerText = `Total: $${total.toFixed(2)}`;
+    }
+
+    window.onload = loadCart;
+  </script>
+
+</body>
+</html>
