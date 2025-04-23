@@ -15,12 +15,12 @@
 
 
 
-<section class="bg-gray-100 flex items-center justify-center min-h-screen">
+ <section class="bg-gray-100 flex items-center justify-center min-h-screen">
 
     <div class="bg-white p-8 rounded-lg shadow-lg w-96">
         <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Sign Up</h2>
         
-        <form action="#" method="POST" class="space-y-4">
+        <form action="#" method="POST" id="signup-form" class="space-y-4">
             <div>
                 <label for="name" class="block text-gray-700 font-medium">Full Name</label>
                 <input type="text" id="name" name="name" class="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" placeholder="Enter your full name" required>
@@ -47,7 +47,78 @@
         <p class="text-center text-gray-600 mt-4">Already have an account? <a href="login.html" class="text-green-700 hover:underline">Login</a></p>
     </div>
 
-</section>
+</section> 
+
+
+
+
+<!-- <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md ">
+    <h2 class="text-2xl font-bold mb-6 text-center text-green-700">Create an Account</h2>
+
+    <form id="signup-form" class="space-y-4">
+      <input type="text" id="username" placeholder="Username" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required />
+      <input type="email" id="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required />
+      <input type="password" id="password" placeholder="Password" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required />
+
+      <button type="submit" class="w-full bg-green-700 text-white font-semibold py-3 rounded-lg hover:bg-green-800">Sign Up</button>
+    </form>
+
+    <p class="mt-4 text-center text-sm text-gray-600">
+      Already have an account?
+      <a href="login.html" class="text-green-600 hover:underline">Log In</a>
+    </p>
+  </div> -->
+
+  <script>
+    document.getElementById("signup-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+  
+      if (!name || !email || !password) {
+        alert("All fields are required.");
+        return;
+      }
+  
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+  
+      // Check if user already exists
+      const userExists = users.find(user => user.email === email);
+      if (userExists) {
+        alert("User already exists. Please log in.");
+        return;
+      }
+  
+      const newUser = { name, email, password };
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users));
+      alert("Account created! You can now log in.");
+  
+      // Redirect to login
+      window.location.href = "login.html";
+    });
+  </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- FOOTER SECTION -->

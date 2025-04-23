@@ -58,6 +58,48 @@
 
 
 
+//add to cart
+function addToCart(bookElement) {
+  const title = bookElement.dataset.title;
+  const author = bookElement.dataset.author;
+  const price = parseFloat(bookElement.dataset.price);
+  const img = bookElement.querySelector('img').src;
 
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existing = cart.find(item => item.title === title);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ title, author, price, img, quantity: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  alert("Book added to cart!");
+}
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const badge = document.getElementById("cart-count");
+  if (badge) badge.textContent = totalCount;
+}
+
+document.addEventListener("DOMContentLoaded", updateCartCount);
+
+
+
+
+//add to cart on other pages
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const badge = document.getElementById("cart-count");
+  if (badge) badge.textContent = totalCount;
+}
+
+document.addEventListener("DOMContentLoaded", updateCartCount);
 
 

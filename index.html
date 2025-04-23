@@ -29,8 +29,10 @@
 
     <!-- Icons -->
     <div class="flex space-x-4 text-white px-4">
-        <a href="#" class="hover:text-gray-200 transition"><i class="fa-solid fa-heart"></i></a>
-        <a href="cart.html" class="hover:text-gray-200 transition"><i class="fa-solid fa-cart-shopping"></i></a>
+        <!-- <a href="#" class="hover:text-gray-200 transition"><i class="fa-solid fa-heart"></i></a> -->
+        <a href="cart.html" class=" relative inline-block hover:text-gray-200 transition"><i class="fa-solid fa-cart-shopping">
+            <span id="cart-count" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+        </i></a>
         <a href="login.html" class="hover:text-gray-200 transition"><i class="fa-solid fa-user"></i></a>
     </div>
 
@@ -50,16 +52,6 @@
         <li><a href="blog.html" class="block hover:underline">Blog</a></li>
     </ul>
 </div>
-
-<!-- Search Bar -->
-<!-- <div class="w-full flex justify-center p-4" id="search-bar">
-    <div class="relative w-full max-w-lg">
-        <input id="search-input" type="text" placeholder="Search books..." class="w-full border border-green-800 p-3 pl-4 pr-12 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-black">
-            <i class="fa-solid fa-search cursor-pointer"></i>
-        </button>
-    </div>
-</div> -->
 
 
 <div class="w-full flex justify-center p-4" id="search-bar">
@@ -142,9 +134,9 @@
               <div>
                   <h5 class="text-lg font-semibold mb-3">Customer Service</h5>
                   <ul>
-                      <li><a href="faqs.html" class="hover:underline">FAQs</a></li>
-                      <li><a href="account.html" class="hover:underline">My Account</a></li>
-                      <li><a href="track-order.html" class="hover:underline">Track My Order</a></li>
+                      <li><a href="#" class="hover:underline">FAQs</a></li>
+                      <li><a href="#" class="hover:underline">My Account</a></li>
+                      <li><a href="#" class="hover:underline">Track My Order</a></li>
                   </ul>
               </div>
   
@@ -152,8 +144,8 @@
               <div>
                   <h5 class="text-lg font-semibold mb-3">About Us</h5>
                   <ul>
-                      <li><a href="our-story.html" class="hover:underline">Our Story</a></li>
-                      <li><a href="our-stores.html" class="hover:underline">Our Stores</a></li>
+                      <li><a href="#" class="hover:underline">Our Story</a></li>
+                      <li><a href="#" class="hover:underline">Our Stores</a></li>
                   </ul>
               </div>
   
@@ -172,8 +164,8 @@
               <div>
                   <h5 class="text-lg font-semibold mb-3">Our Policies</h5>
                   <ul>
-                      <li><a href="terms.html" class="hover:underline">Terms & Conditions</a></li>
-                      <li><a href="privacy.html" class="hover:underline">Privacy Policy</a></li>
+                      <li><a href="#" class="hover:underline">Terms & Conditions</a></li>
+                      <li><a href="#" class="hover:underline">Privacy Policy</a></li>
                   </ul>
               </div>
           </div>
@@ -195,6 +187,19 @@
           </div>
       </div>
   </footer>
+
+<!-- add to cart function -->
+  <script>
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const badge = document.getElementById("cart-count");
+      if (badge) badge.textContent = totalCount;
+    }
+  
+    document.addEventListener("DOMContentLoaded", updateCartCount);
+  </script> 
+  
 
   
   <script type="text/javascript" src="script.js"></script>

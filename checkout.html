@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+   
+</head>
+<body class="bg-gray-50 min-h-screen p-6">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-center mb-8">Checkout</h1>
+
+    <!-- Order Summary -->
+    <div class="bg-white shadow rounded-lg p-6 mb-8">
+      <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+      <ul id="checkout-summary" class="space-y-2">
+        <!-- JS will inject items here -->
+      </ul>
+      <p class="text-lg font-semibold mt-4">Total: $<span id="checkout-total">0.00</span></p>
+    </div>
+
+    <!-- User Info -->
+    <div class="bg-white shadow rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4">Shipping Information</h2>
+      <form id="checkout-form" class="space-y-4 ">
+        <input type="text" placeholder="Full Name" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 " required />
+        <input type="email" placeholder="Email Address" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 " required />
+        <input type="text" placeholder="Shipping Address" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 " required />
+        <input type="text" placeholder="City" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 " required />
+        <input type="text" placeholder="ZIP Code" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 " required />
+
+        <button type="submit" class="w-full py-3 bg-green-700 text-white font-semibold rounded hover:bg-green-800">
+          Place Order
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="text-center mt-8">
+    <a href="cart.html" class="text-green-700 hover:underline font-medium">← Return to Cart</a>
+  </div>
+</div>
+
+  <script>
+    // Load cart items into summary
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const summary = document.getElementById("checkout-summary");
+    const totalEl = document.getElementById("checkout-total");
+
+    let total = 0;
+    cart.forEach(item => {
+      const li = document.createElement("li");
+      li.className = "flex justify-between";
+      li.innerHTML = `<span>${item.title} x ${item.quantity}</span><span>$${(item.price * item.quantity).toFixed(2)}</span>`;
+      summary.appendChild(li);
+      total += item.price * item.quantity;
+    });
+
+    totalEl.textContent = total.toFixed(2);
+
+    // Fake order submission
+    document.getElementById("checkout-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Thank you! Your order has been placed.");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html"; // Redirect after checkout
+    });
+  </script>
+</body>
+</html>
